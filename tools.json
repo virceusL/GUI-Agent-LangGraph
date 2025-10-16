@@ -1,0 +1,105 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "mouse_tool",
+            "description": "支持常见鼠标操作。操作: move (移动光标), drag (拖动目标), click (点击), scroll (滚轮滑动)。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["move", "drag", "click", "scroll"],
+                        "description": "鼠标操作类型: move(光标移动), drag(拖动目标), click(点击), scroll(滚轮滑动)。"
+                    },
+                    "target": {
+                        "type": ["integer", "tuple"],
+                        "description": "操作的具体目标: move/drag/click 时为坐标元组: (x, y), scroll 时为滚轮滑动的整数距离 (正数向上,负数向下)。",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "button": {
+                        "type": "string",
+                        "enum": ["left", "right", "middle", "primary", "secondary"],
+                        "description": "鼠标按键: left(左键), right(右键), middle(中键), primary(主键, 一般为左键), secondary(次键, 一般为右键)。(该参数仅适用于 click)"
+                    },
+                    "interval": {
+                        "type": "float",
+                        "description": "每次 click 需要间隔的时间。(该参数仅适用于 click)"
+                    },
+                    "clicks": {
+                        "type": "integer",
+                        "description": "click 动作需要重复的次数。(该参数仅适用于 click)"
+                    }
+                },
+                "required": ["action", "target"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "keyboard_tool",
+            "description": "支持常见键盘操作。操作: write (文本字符串), press (按下单个键, 如回车/大写键), hotkey (如 ctrl+c 组合键), sequence (顺序按下多个键), keydown (按住单个键), keyup (松开单个键)。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["write", "press", "hotkey", "sequence", "keydown", "keyup"],
+                        "description": "键盘操作类型: write(输入文本), press(按下单个键), hotkey(使用组合键), sequence(顺序按下多个键), keydown(按住单个键), keyup(松开单个键)。"
+                    },
+                    "target": {
+                        "type": ["string", "array"],
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "操作的具体目标: write 则输入为文本, press/keydown/keyup 则输入为单个键名, hotkey 则输入为按键列表, sequence 则输入为顺序按键列表。"
+                    },
+                    "modifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "description": "同时按住的修饰键列表, 如 ctrl, alt, shift, ctrl (macOS)。"
+                    },
+                    "interval": {
+                        "type": "float",
+                        "minimum": 0.01,
+                        "maximum": 1.0,
+                        "default": 0.05,
+                        "description": "按键间隔时间。(仅适用于 write 和 sequence)"
+                    },
+                    "repeat": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 10,
+                        "default": 1,
+                        "description": "键盘操作需要重复的次数。"
+                    }
+                },
+                "required": ["action", "target"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "ui_matching_tool",
+            "description": "ONLY FOR UI MATCHING | NO DESCRIPTION CAPABILITY. Input: the text label of the UI element to be matched. | Output: the information of the matched UI, coordinates, confidence, interactivity, etc. When using this tool, make sure you analyze the reasonability of the elements' content and confidence.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Input query for UI matching, use comma ',' to separate multiple queries.",
+                        "examples": ["chrome icon, the browser, search box, WeChat app, flight from Shenzhen to Shanghai"]
+                    }
+                },
+                "required": ["query"]
+            }
+        }
+    }
+]

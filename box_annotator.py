@@ -7,6 +7,10 @@ from supervision.detection.core import Detections
 from supervision.draw.color import Color, ColorPalette
 
 
+# From Ominiparser V2
+# https://github.com/microsoft/OmniParser
+
+
 class BoxAnnotator:
     """
     A class for drawing bounding boxes on an image using detections provided.

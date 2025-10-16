@@ -18,6 +18,10 @@ from PIL import Image
 
 from box_annotator import BoxAnnotator 
 
+
+# From Ominiparser V2
+# https://github.com/microsoft/OmniParser
+
 reader = easyocr.Reader(['ch_sim', 'en'])
 paddle_ocr = PaddleOCR(
     lang='ch_doc',  # other lang also available

@@ -12,7 +12,7 @@ Core features: UI element detection (YOLO/OCR), icon/text matching (SigLIP / sen
 
 ## Main modules
 
-- Perception & helpers (Editted from OmniParser V2): [utils.py](utils.py)  
+- Perception & helpers (Edited from OmniParser V2): [utils.py](utils.py)  
   - Key functions: [`utils.find_target_elements`](utils.py), [`utils.get_yolo_model`](utils.py), [`utils.get_siglip_model_processor`](utils.py), [`utils.get_caption_model_processor`](utils.py)
 - Vision tools (LangChain tools): [vlm_tools.py](vlm_tools.py)  
   - Key classes/functions: [`vlm_tools.VisionToolsConfig`](vlm_tools.py), [`vlm_tools.UIMatchingTool`](vlm_tools.py), [`vlm_tools.VisionCaptionTool`](vlm_tools.py), [`vlm_tools.test_ui_matching`](vlm_tools.py)

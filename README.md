@@ -35,5 +35,5 @@ Core features: UI element detection (YOLO/OCR), icon/text matching (SigLIP / sen
 - [peripheral_tools.py](peripheral_tools.py) — mouse & keyboard tools  
 - [box_annotator.py](box_annotator.py) — drawing bounding boxes  
 - [executor.md](executor.md) — agent prompt template  
-- [tools.json](tools.json) — tool schema for the agent
+- ~~[tools.json](tools.json) — tool schema for the agent  [UNUSED]~~
 - ~~[parser.py](parser.py) — parse model tool-call outputs  [UNUSED]~~

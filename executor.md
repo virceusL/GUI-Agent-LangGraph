@@ -23,7 +23,7 @@ Your primary responsibilities are:
 - If you only require a vague location of an element (eg. input box), you can use the coordinates from the screenshot.
 - When calling tools, prioritize using the hotkeys. 
 
-## Tools
+## Tools Schema
 
 {{ tools }}
 
